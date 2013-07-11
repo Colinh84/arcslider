@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700|Open+Sans:400,300,600' rel='stylesheet' type='text/css' />
+	<meta charset="utf-8" />
+	<title>ArcSlider Demo</title>
+	<!--load ArcSlider styles-->
+	<link rel="stylesheet" media="screen" href="css/arcSlider.css" />
+</head>
+<!--Tell AngularJS to start-->
+<body data-ng-app>
+	<!--Start ArcSlider-->
+	<div id="slider" data-ng-controller="arcSlider">
+		<div data-ng-switch data-on="slide" data-ng-animate="'wave'">
+			<!--Start first slide-->
+			<!--Declare slide image in url('') style located in DIV tag below-->
+			<div class="slide" id="c-slide" data-ng-switch-default style="background: transparent url('img/earth.jpg') no-repeat left top; background-size: cover">
+				<!--Set URL in <a> tag below to redirect user when slide image is clicked--> 
+				<a href="http://arcsec.ca/">
+					<div style="min-width: 100%; min-height: 100%;"></div>
+				</a>
+				<!--Set text overlay color styles for this slide below-->
+				<div class="text-container" style="background: rgb(19, 47, 84); background: rgba(19, 47, 84, .8);">
+					<!--Slide Title-->
+					<h3 class="box-title">Slide #1 Title</h3>
+					<!--Slide text description-->
+					<p>Description of slide #1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra leo at ultricies rutrum. Nunc vestibulum augue a orci laoreet tincidunt. Nullam faucibus tellus nunc, vitae lacinia eros condimentum ac. Nulla ac semper neque. Nulla magna erat, malesuada vel placerat non, aliquet quis turpis. Aliquam a lorem bibendum, dictum ante ac, dignissim augue. Suspendisse feugiat velit nec leo cursus cursus. Nunc aliquet libero id mattis lacinia. Fusce diam sapien, convallis faucibus mattis non, convallis ac ligula. Integer sem mauris, porttitor et ipsum sit amet, pulvinar convallis quam.</p>
+					<ul class="box-link">
+						<!--Set text box links here-->
+						<li><a href="http://arcsec.ca/" style="color: #87A01C;">Optional Link</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- End first slide -->
+			<!--Start second slide-->
+			<div class="slide" data-ng-switch-when="2" style="background: transparent url('img/iss.jpg') no-repeat left top; background-size: cover">
+				<a href="http://arcsec.ca/">
+					<div style="min-width: 100%; min-height: 100%;"></div>
+				</a>
+				<div class="text-container" style="background: rgb(81, 184, 189); background: rgba(81, 184, 189, .8);">
+					<h3 class="box-title">Slide #2 Title</h3>
+					<p>Description for slide #2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra leo at ultricies rutrum. Nunc vestibulum augue a orci laoreet tincidunt. Nullam faucibus tellus nunc, vitae lacinia eros condimentum ac. </p>
+					<ul class="box-link">
+						<li><a href="http://arcsec.ca/" style="color: #70662B;">Optional Link #2</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--End second slide-->
+			<!--Start third slide-->
+			<div class="slide" data-ng-switch-when="3" style="background: transparent url('img/space.jpg') no-repeat left top; background-size: cover">
+				<a href="http://arcsec.ca/">
+					<div style="min-width: 100%; min-height: 100%;"></div>
+				</a>
+				<div class="text-container" style="background: rgb(10, 160, 160); background: rgba(10, 160, 160, .8);">
+					<h3 class="box-title">Slide #3 Title</h3>
+					<p>Description for slide #3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pharetra leo at ultricies rutrum. Nunc vestibulum augue a orci laoreet tincidunt. Nullam faucibus tellus nunc, vitae lacinia eros condimentum ac. </p>
+					<ul class="box-link">
+						<li><a href="http://arcsec.ca/" style="color: #ECC703;">Optional Link #3</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--End third slide-->
+		</div>
+		<!--Set slider nav buttons located at bottom right corner-->
+		<div id="slider-nav">
+			<ul>
+				<!--Start first nav button-->
+				<li class="slide-button">
+					<!--The number in setupSlide() corresponds to the slide that you want it to link to-->
+					<!--The numbers must match in data-ng-class to indicate if the corresponding slide is active or not-->
+					<a data-ng-click="setupSlide(1)" data-ng-class="{'active-slide': 1 == slide, 'slide-nav': 1 != slide}">●</a>
+				</li>
+				<!--End first nav button-->
+				<li class="slide-button">
+					<a data-ng-click="setupSlide(2)" data-ng-class="{'active-slide': 2 == slide, 'slide-nav': 2 != slide}">●</a>
+				</li>
+				<li class="slide-button">
+					<a data-ng-click="setupSlide(3)" data-ng-class="{'active-slide': 3 == slide, 'slide-nav': 3 != slide}">●</a>
+				</li>
+				<!--Add a new slide-button for each slide added to the slider, don't forget to increment the numbers accordingly-->
+			</ul>
+		</div>
+	</div>
+	<!--End ArcSlider-->
+	
+	<!--Load JS resources-->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+	<script src="js/arcSlider.js"></script>
+</body>
+</html>
